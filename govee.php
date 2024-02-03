@@ -2,10 +2,8 @@
   apikey = "e25527fb-1ba4-47e5-8ee8-559c59826936";
 
   $arr = get_devices ($apikey);
-//  print_r ($arr);
 
   foreach ($arr->data->devices as $device) {
-//    print_r ($device);
     print "MAC: " . $device->device . "\n";
     print "Model: " . $device->model . "\n";
     print "Name: " . $device->deviceName . "\n\n";
@@ -16,14 +14,13 @@
 //  print_r ($arr);
 
 //  $arr = changecolor ($apikey, "B4:0E:D4:AD:FC:A6:99:18", "H6008", 185, 214, 235);
-//  $arr = changecolor ($apikey, "B4:0E:D4:AD:FC:A6:99:18", "H6008", 231, 159, 92);
 //  print_r ($arr);
 
 //  $arr = brightness ($apikey, "B4:0E:D4:AD:FC:A6:99:18", "H6008", 100);
 //  print_r ($arr);
 
-  $arr = changetemp ($apikey, "2B:29:D4:AD:FC:A6:88:D0", "H6008", 6500);
-  print_r ($arr);
+//  $arr = changetemp ($apikey, "2B:29:D4:AD:FC:A6:88:D0", "H6008", 6500);
+//  print_r ($arr);
 
 function brightness ($apikey, $device, $model, $brightness) {
   $url = "https://developer-api.govee.com/v1/devices/control";
@@ -38,7 +35,6 @@ function brightness ($apikey, $device, $model, $brightness) {
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, $url);
-    //curl_setopt($ch, CURLOPT_USERPWD, $GLOBALS["username"] . ":" . $GLOBALS["password"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, trim($postdata));
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
@@ -65,7 +61,6 @@ function changetemp ($apikey, $device, $model, $temp) {
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, $url);
-    //curl_setopt($ch, CURLOPT_USERPWD, $GLOBALS["username"] . ":" . $GLOBALS["password"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, trim($postdata));
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
@@ -93,7 +88,6 @@ function changecolor ($apikey, $device, $model, $r, $g, $b) {
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, $url);
-    //curl_setopt($ch, CURLOPT_USERPWD, $GLOBALS["username"] . ":" . $GLOBALS["password"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, trim($postdata));
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
