@@ -1,5 +1,5 @@
 <?php
-  apikey = "e25527fb-1ba4-47e5-8ee8-559c59826936";
+  apikey = "yourkeyfromgovee";
 
   $arr = get_devices ($apikey);
 
